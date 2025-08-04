@@ -3,6 +3,12 @@ default_platform(:ios)
 platform :ios do
   desc "Build and export the iOS app"
   lane :build_and_export do
-    build_app(workspace: "Runner.xcworkspace", scheme: "Runner", clean: true, output_directory: "./build")
+    build_app(
+      workspace: "Runner.xcworkspace",
+      scheme: "Runner",
+      clean: true,
+      skip_codesigning: true,
+      output_directory: "./build"
+    )
   end
 end
