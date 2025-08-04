@@ -4,11 +4,12 @@ platform :ios do
   desc "Build and export the iOS app"
   lane :build_and_export do
     build_app(
-      workspace: "Runner.xcworkspace",
-      scheme: "Runner",
-      clean: true,
-      skip_codesigning: true,
-      output_directory: "./build"
-    )
+  workspace: "Runner.xcworkspace",
+  scheme: "Runner",
+  clean: true,
+  skip_package_ipa: false,
+  skip_codesigning: true, # <--- هذا هو المفتاح
+  output_directory: "./build"
+)
   end
 end
