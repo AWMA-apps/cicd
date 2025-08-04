@@ -1,0 +1,33 @@
+name: Flutter CI/CD
+
+on:
+  push:
+    branches:
+      - master  # أو اسم الفرع الذي تعمل عليه
+
+jobs:
+  build:
+    runs-on: macos-latest  # يمكنك استخدام macos-latest للبناء على iOS
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.4'  # استخدم إصدار Flutter الذي تفضله
+          channel: 'stable'
+
+      - name: Get Flutter dependencies
+        run: flutter pub get
+
+      - name: Build and Export iOS using Fastlane
+        run: fastlane build_and_export
+        working-directory: ios/ # مهم جداً لتشغيل fastlane من مجلد iOS
+
+      - name: Upload iOS IPA as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-ipa
+          path: ios/build/Runner.ipa # المسار الذي سيتم فيه حفظ ملف IPA
