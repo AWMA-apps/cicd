@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # يمكنك استخدام macos-latest للبناء على iOS
+    runs-on: macos-latest  # يمكنك استخدام macos-latest للبناء على iOS
 
     steps:
       - name: Checkout Repository
@@ -42,3 +42,12 @@ jobs:
         with:
           name: release-aab
           path: build/app/outputs/bundle/release/app-release.aab
+
+      - name: Build iOS
+        run: flutter build ios --release --no-codesign
+
+      - name: Upload iOS IPA as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-ipa
+          path: build/ios/ipa/
