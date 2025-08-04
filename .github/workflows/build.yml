@@ -27,7 +27,7 @@ jobs:
         working-directory: ios/ # مهم جداً لتشغيل fastlane من مجلد iOS
 
       - name: Upload iOS IPA as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: release-ipa
           path: ios/build/Runner.ipa # المسار الذي سيتم فيه حفظ ملف IPA
