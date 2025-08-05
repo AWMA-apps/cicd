@@ -8,6 +8,8 @@ platform :ios do
       scheme: "Runner",
       clean: true,
       output_directory: "./build",
+      skip_package_ipa: false,
+      skip_codesigning: true, # <--- هذا هو المفتاح
       export_method: "development",
       # هذه الخيارات مهمة لتجاوز خطأ التوقيع
       export_options: {
