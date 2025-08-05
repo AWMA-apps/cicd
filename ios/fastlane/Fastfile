@@ -12,12 +12,6 @@ platform :ios do
       skip_codesigning: true, # <--- هذا هو المفتاح
       export_method: "development",
       # هذه الخيارات مهمة لتجاوز خطأ التوقيع
-      export_options: {
-        signingStyle: "manual",
-        provisioningProfiles: {
-          "com.your.bundle.id" => "Your_Provisioning_Profile_Name" # استبدل بمعلوماتك
-        }
-      }
     )
   end
 end
