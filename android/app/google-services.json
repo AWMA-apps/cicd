@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "257730270312",
+    "firebase_url": "https://flutter-prep-c705c-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "flutter-prep-c705c",
+    "storage_bucket": "flutter-prep-c705c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257730270312:android:05d29f3939bc9404f297dd",
+        "android_client_info": {
+          "package_name": "com.awma.mymvvmroom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS7UuQcAlkDCuyjcY84MLFSFz6a3dLpL4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257730270312:android:75557b7485fc01dbf297dd",
+        "android_client_info": {
+          "package_name": "com.example.cicd_tutorial"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS7UuQcAlkDCuyjcY84MLFSFz6a3dLpL4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
