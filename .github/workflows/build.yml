@@ -25,9 +25,6 @@ jobs:
       - name: Get Flutter dependencies
         run: flutter pub get
 
-      - name: Build iOS dependencies
-        run: flutter build ios --no-codesign
-
       - name: Build and Export iOS using Fastlane
         run: fastlane build_and_export
         working-directory: ios/
