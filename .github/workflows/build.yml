@@ -30,12 +30,14 @@ jobs:
         uses: google-github-actions/auth@v1
         with:
           credentials_json: '${{ secrets.FIREBASE_CREDENTIALS }}'
+          
+      - name: Install gcloud CLI components
+        run: gcloud components install beta
 
       - name: Run Firebase Test Lab
-        uses: google-github-actions/firebase-test-lab@v1
-        with:
-          project-id: ${{ secrets.FIREBASE_PROJECT_ID }}
-          test: instrumentation
-          app: build/app/outputs/flutter-apk/app-debug.apk
-          test-apk: build/app/outputs/apk/androidTest/debug/app-debug-androidTest.apk
-          device: model=Pixel2,version=30,locale=en,orientation=portrait
+        run: |
+          gcloud firebase test android run \
+            --type instrumentation \
+            --app build/app/outputs/flutter-apk/app-debug.apk \
+            --test build/app/outputs/apk/androidTest/debug/app-debug-androidTest.apk \
+            --device model=Pixel2,version=30,locale=en,orientation=portrait
