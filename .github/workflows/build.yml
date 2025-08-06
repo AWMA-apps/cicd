@@ -2,7 +2,7 @@ name: Flutter CI with Firebase Test Lab
 
 on:
   push:
-    branches: [master]  # عدّل حسب اسم فرعك
+    branches: [master]  # غيّر اسم الفرع إذا كان مختلف
 
 jobs:
   build-and-test:
@@ -16,23 +16,23 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.32.4'
-          
+
       - name: Install dependencies
         run: flutter pub get
 
       - name: Build Android Debug APK
         run: flutter build apk --debug
 
-      - name: Build Android Test APK
+      - name: Build Integration Test APK
         run: flutter build apk --debug --target integration_test/app_test.dart
 
       - name: Authenticate with Firebase
         uses: google-github-actions/auth@v1
         with:
           credentials_json: '${{ secrets.FIREBASE_CREDENTIALS }}'
-          
-      - name: Install gcloud CLI components
-        run: gcloud components install beta
+
+      - name: Install gcloud beta
+        run: sudo apt-get install google-cloud-cli-beta
 
       - name: Run Firebase Test Lab
         run: |
