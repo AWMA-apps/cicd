@@ -17,6 +17,12 @@ jobs:
         with:
           flutter-version: '3.32.4'
 
+      - name: Install Android SDK NDK
+        run: sdkmanager "ndk;29.0.13599879"
+
+      - name: Accept Android Licenses
+        run: yes | sdkmanager --licenses
+
       - name: Install dependencies
         run: flutter pub get
 
